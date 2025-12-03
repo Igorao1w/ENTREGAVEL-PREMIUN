@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área de Membros | Proteção no Volante</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Rajdhani:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="login_fix.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Login Screen -->
+    <div id="login-screen" class="login-screen">
+        <div class="login-container">
+            <!-- Logo -->
+            <div class="login-logo">
+                <i data-lucide="shield"></i>
+            </div>
+
+            <!-- Brand -->
+            <div class="login-brand">
+                <h1>PROTEÇÃO NO VOLANTE</h1>
+                <p class="subtitle">Área de Membros <span class="premium-text">Premium</span></p>
+                <p class="tagline">Aprenda plano sem partilha</p>
+            </div>
+
+            <!-- Login Card -->
+            <div class="login-card">
+                <h2>FAÇA SEU LOGIN</h2>
+
+                <form id="login-form">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <div class="input-field">
+                            <i data-lucide="mail"></i>
+                            <input type="email" id="email" placeholder="seu@email.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Senha</label>
+                        <div class="input-field">
+                            <i data-lucide="lock"></i>
+                            <input type="password" id="password" placeholder="••••••••" required>
+                            <span id="toggle-password" class="eye-toggle">
+                                <i data-lucide="eye"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div id="login-error" class="error-msg"></div>
+
+                    <button type="submit" class="btn-login">
+                        <i data-lucide="log-in"></i>
+                        Entrar na Área de Membros
+                    </button>
+                </form>
+
+                <!-- Credentials Box -->
+                <div class="credentials-info">
+                    <p class="cred-header">CREDENCIAIS DE ACESSO:</p>
+                    <p class="cred-item"><span class="cred-label">Email:</span> usuariopremiun@email.com</p>
+                    <p class="cred-item"><span class="cred-label">Senha:</span> senha456</p>
+                    <button type="button" class="btn-autofill" onclick="fillCredentials()">
+                        <i data-lucide="zap"></i>
+                        Preencher Automaticamente
+                    </button>
+                </div>
+
+                <p class="help-text">
+                    Problemas para acessar? <a
+                        href="https://wa.me/5511975549949?text=Ol%C3%A1!%20Quero%20suporte%20sobre%20a%20Prote%C3%A7%C3%A3o%20no%20Volante"
+                        target="_blank">Entre em contato</a>
+                </p>
+            </div>
+
+            <!-- Footer Tip -->
+            <div class="login-footer">
+                <i data-lucide="shield"></i>
+                <p>Você não precisa saber partilha. O aprendizado é visual e prático.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function fillCredentials() {
+            document.getElementById('email').value = 'usuariopremiun@email.com';
+            document.getElementById('password').value = 'senha456';
+        }
+    </script>
+
+    <!-- App Content -->
+    <div id="app-content" style="display: none;">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo">
+                <i data-lucide="shield"></i>
+                <span>PROTEÇÃO</span>
+            </div>
+            <div class="user-avatar">
+                <i data-lucide="user"></i>
+            </div>
+        </header>
+
+        <!-- Main Container -->
+        <div class="app-container">
+
+            <!-- Aulas Tab -->
+            <div id="tab-aulas" class="tab-content active">
+                <div class="module-header">
+                    <h2 class="module-title">MÓDULO 1: PREVENÇÃO</h2>
+                    <p class="module-desc">A base da sua segurança nas ruas.</p>
+                </div>
+
+                <!-- Video Carousel -->
+                <div class="video-carousel" id="premium-content">
+                    <!-- Video 1 -->
+                    <div class="video-card" data-video-id="F96VtGCcS2Q">
+                        <div class="video-wrapper">
+                            <div id="player-F96VtGCcS2Q"></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="video-title">O que você precisa saber para se proteger no Uber</h3>
+                            <div class="topic-list">
+                                <div class="topic-item">
+                                    <span class="topic-number">1</span>
+                                    <span class="topic-text">Configuração do App</span>
+                                </div>
+                                <div class="topic-item">
+                                    <span class="topic-number">2</span>
+                                    <span class="topic-text">Análise de Perfil</span>
+                                </div>
+                                <div class="topic-item">
+                                    <span class="topic-number">3</span>
+                                    <span class="topic-text">Locais de Risco</span>
+                                </div>
+                            </div>
+                            <button class="btn-action" onclick="playVideo('F96VtGCcS2Q')">ASSISTIR AULA</button>
+                        </div>
+                    </div>
+
+                    <!-- Video 2 -->
+                    <div class="video-card" data-video-id="7DGXcyFRovg">
+                        <div class="video-wrapper">
+                            <div id="player-7DGXcyFRovg"></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="video-title">Como se proteger em situações de risco</h3>
+                            <div class="topic-list">
+                                <div class="topic-item">
+                                    <span class="topic-number">1</span>
+                                    <span class="topic-text">Leitura Corporal</span>
+                                </div>
+                                <div class="topic-item">
+                                    <span class="topic-number">2</span>
+                                    <span class="topic-text">Desescalada</span>
+                                </div>
+                                <div class="topic-item">
+                                    <span class="topic-number">3</span>
+                                    <span class="topic-text">Rota de Fuga</span>
+                                </div>
+                            </div>
+                            <button class="btn-action" onclick="playVideo('7DGXcyFRovg')">ASSISTIR AULA</button>
+                        </div>
+                    </div>
+
+                    <!-- Video 3 -->
+                    <div class="video-card" data-video-id="j0H6BETOzzY">
+                        <div class="video-wrapper">
+                            <div id="player-j0H6BETOzzY"></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="video-title">Dicas de segurança para motoristas</h3>
+                            <div class="topic-list">
+                                <div class="topic-item">
+                                    <span class="topic-number">1</span>
+                                    <span class="topic-text">Equipamentos</span>
+                                </div>
+                                <div class="topic-item">
+                                    <span class="topic-number">2</span>
+                                    <span class="topic-text">Postura</span>
+                                </div>
+                                <div class="topic-item">
+                                    <span class="topic-number">3</span>
+                                    <span class="topic-text">Comunicação</span>
+                                </div>
+                            </div>
+                            <button class="btn-action" onclick="playVideo('j0H6BETOzzY')">ASSISTIR AULA</button>
+                        </div>
+                    </div>
+
+                    <!-- Video 4 -->
+                    <div class="video-card" data-video-id="jU08fZ8aLV8">
+                        <div class="video-wrapper">
+                            <div id="player-jU08fZ8aLV8"></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="video-title">Como evitar riscos e assaltos</h3>
+                            <div class="topic-list">
+                                <div class="topic-item">
+                                    <span class="topic-number">1</span>
+                                    <span class="topic-text">Identificação de Riscos</span>
+                                </div>
+                                <div class="topic-item">
+                                    <span class="topic-number">2</span>
+                                    <span class="topic-text">Comportamento Preventivo</span>
+                                </div>
+                                <div class="topic-item">
+                                    <span class="topic-number">3</span>
+                                    <span class="topic-text">Ação e Reação</span>
+                                </div>
+                            </div>
+                            <button class="btn-action" onclick="playVideo('jU08fZ8aLV8')">ASSISTIR AULA</button>
+                        </div>
+                    </div>
+
+                    <!-- Video 5 -->
+                    <div class="video-card" data-video-id="zHHasMoR_8c">
+                        <div class="video-wrapper">
+                            <div id="player-zHHasMoR_8c"></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="video-title">Segurança no transporte de passageiros</h3>
+                            <div class="topic-list">
+                                <div class="topic-item">
+                                    <span class="topic-number">1</span>
+                                    <span class="topic-text">Abordagem Inicial</span>
+                                </div>
+                                <div class="topic-item">
+                                    <span class="topic-number">2</span>
+                                    <span class="topic-text">Durante a Viagem</span>
+                                </div>
+                                <div class="topic-item">
+                                    <span class="topic-number">3</span>
+                                    <span class="topic-text">Desembarque Seguro</span>
+                                </div>
+                            </div>
+                            <button class="btn-action" onclick="playVideo('zHHasMoR_8c')">ASSISTIR AULA</button>
+                        </div>
+                    </div>
+
+                    <!-- Video 6 -->
+                    <div class="video-card" data-video-id="f3BiCaIfiiM">
+                        <div class="video-wrapper">
+                            <div id="player-f3BiCaIfiiM"></div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="video-title">Aumentando a segurança do veículo</h3>
+                            <div class="topic-list">
+                                <div class="topic-item">
+                                    <span class="topic-number">1</span>
+                                    <span class="topic-text">Manutenção Preventiva</span>
+                                </div>
+                                <div class="topic-item">
+                                    <span class="topic-number">2</span>
+                                    <span class="topic-text">Itens de Segurança</span>
+                                </div>
+                                <div class="topic-item">
+                                    <span class="topic-number">3</span>
+                                    <span class="topic-text">Blindagem e Películas</span>
+                                </div>
+                            </div>
+                            <button class="btn-action" onclick="playVideo('f3BiCaIfiiM')">ASSISTIR AULA</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carousel Dots -->
+                <div class="carousel-dots" id="carouselDots"></div>
+            </div>
+
+            <!-- Continue Watching Tab -->
+            <div id="tab-continue" class="tab-content">
+                <div class="module-header">
+                    <h2 class="module-title">CONTINUAR</h2>
+                    <p class="module-desc">Retome de onde parou.</p>
+                </div>
+                <div id="continue-list" class="continue-list">
+                    <!-- Items injected by JS -->
+                </div>
+            </div>
+
+            <!-- Materiais Tab -->
+            <div id="tab-materiais" class="tab-content">
+                <div class="module-header">
+                    <h2 class="module-title">MATERIAIS</h2>
+                    <p class="module-desc">Baixe seus guias e manuais.</p>
+                </div>
+                <div class="resource-grid">
+                    <div class="resource-card" data-resource="ebook">
+                        <i data-lucide="book" class="resource-icon"></i>
+                        <h3 class="resource-title">E-book Completo</h3>
+                        <p class="resource-desc">O guia definitivo.</p>
+                        <div class="card-actions">
+                            <button class="btn-open" onclick="handleOpen('ebook')">ABRIR</button>
+                            <button class="btn-download" onclick="handleDownload('ebook')">BAIXAR PDF</button>
+                        </div>
+                    </div>
+                    <div class="resource-card" data-resource="checklist">
+                        <i data-lucide="check-square" class="resource-icon"></i>
+                        <h3 class="resource-title">Checklist Diário</h3>
+                        <p class="resource-desc">Segurança antes de sair.</p>
+                        <div class="card-actions">
+                            <button class="btn-open" onclick="handleOpen('checklist')">ABRIR</button>
+                            <button class="btn-download" onclick="handleDownload('checklist')">BAIXAR PDF</button>
+                        </div>
+                    </div>
+                    <div class="resource-card" data-resource="manual">
+                        <i data-lucide="file-text" class="resource-icon"></i>
+                        <h3 class="resource-title">Manual Jurídico</h3>
+                        <p class="resource-desc">Seus direitos na lei.</p>
+                        <div class="card-actions">
+                            <button class="btn-open" onclick="handleOpen('manual')">ABRIR</button>
+                            <button class="btn-download" onclick="handleDownload('manual')">BAIXAR</button>
+                        </div>
+                    </div>
+                    <div class="resource-card" data-resource="golpe">
+                        <i data-lucide="shield-alert" class="resource-icon"></i>
+                        <h3 class="resource-title">Guia Anti-Golpe</h3>
+                        <p class="resource-desc">Proteja seu dinheiro.</p>
+                        <div class="card-actions">
+                            <button class="btn-open" onclick="handleOpen('golpe')">ABRIR</button>
+                            <button class="btn-download" onclick="handleDownload('golpe')">BAIXAR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Tab -->
+            <div id="tab-settings" class="tab-content">
+                <div class="module-header">
+                    <h2 class="module-title">CONFIGURAÇÕES</h2>
+                </div>
+                <div class="settings-group">
+                    <div class="setting-item">
+                        <span class="setting-label">Notificações</span>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <span class="setting-label">Modo Escuro</span>
+                        <label class="switch">
+                            <input type="checkbox" checked disabled>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <span class="setting-label">Plano Atual</span>
+                        <span id="user-plan-display" style="color: var(--primary); font-weight: bold;">Premium</span>
+                    </div>
+                    <div class="setting-item"
+                        onclick="window.open('https://wa.me/5511975549949?text=Ol%C3%A1!%20Quero%20suporte%20sobre%20a%20Prote%C3%A7%C3%A3o%20no%20Volante', '_blank')"
+                        style="cursor: pointer;">
+                        <span class="setting-label">Suporte</span>
+                        <i data-lucide="message-circle" style="color: var(--primary);"></i>
+                    </div>
+                </div>
+                <button class="btn-logout" onclick="logout()">SAIR</button>
+            </div>
+
+            <nav class="bottom-nav" id="bottom-nav">
+                <!-- Injected by JS -->
+            </nav>
+        </div>
+
+        <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+/* --- SCOPED LOGIN FIX (Consolidated) --- */
+.login-container {
+    /* Ajuste fino: move o ícone para a esquerda */
+    --login-icon-left: 10px;
+    /* Tamanho do SVG/icon */
+    --login-icon-size: 20px;
+    /* Espaço interno para texto (Variante B: mais justo) */
+    --login-input-padding-left: 36px;
+}
+
+/* Container do ícone + input */
+.login-container .input-field {
+    position: relative !important;
+}
+
+/* O SVG / Ícone à esquerda (email/cadeado) */
+.login-container .input-field i:first-child,
+.login-container .input-field svg:first-child {
+    position: absolute !important;
+    left: var(--login-icon-left) !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: var(--login-icon-size) !important;
+    height: var(--login-icon-size) !important;
+    pointer-events: none !important;
+    /* Icon não atrapalha clique no input */
+    display: block !important;
+    z-index: 5 !important;
+    color: #666 !important;
+}
+
+/* Inputs de email e senha */
+.login-container .input-field input {
+    padding-left: var(--login-input-padding-left) !important;
+    box-sizing: border-box !important;
+    transition: padding-left .12s ease, box-shadow .12s ease;
+    position: relative !important;
+    z-index: 1 !important;
+    pointer-events: auto !important;
+}
+
+/* Segurança: alinhamento visual do placeholder */
+.login-container .input-field input::placeholder {
+    opacity: 0.7;
+    transform: translateY(0);
+}
+
+/* Suavização de fonte */
+.login-container .input-field i,
+.login-container .input-field input {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- FIX UNIVERSAL DO ÍCONE DO OLHO (Mostrar Senha) --- */
+
+/* Alvo universal para o olho / botão de ver senha */
+.login-container .input-field [class*="eye"],
+.login-container .input-field [class*="toggle"],
+.login-container .input-field [class*="view"],
+.login-container .input-field svg:last-child:not(:first-child),
+/* Garante que não pegue o ícone da esquerda */
+.login-container .input-field button.view-password {
+    position: absolute !important;
+    right: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 22px !important;
+    height: 22px !important;
+    cursor: pointer !important;
+    z-index: 999 !important;
+    pointer-events: auto !important;
+    display: block !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+/* Certifica que todos os paths do SVG aceitam pointer-events */
+.login-container .input-field svg,
+.login-container .input-field svg * {
+    pointer-events: auto !important;
+}
